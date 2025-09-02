@@ -11,3 +11,9 @@ yarn-error.log*
 .vercel
 # OS
 .DS_Store
+.DS_Store
+node_modules
+.next
+.out
+.vercel
+.env*
