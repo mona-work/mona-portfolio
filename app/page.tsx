@@ -54,7 +54,7 @@ const PROJECTS = [
     ],
     tools: ["Power BI", "Airtable", "OpenAI", "Python", "AWS", "Jira"],
     links: [
-      { lable: "Demo Deck", url: "/biocharlife/biocharlife-demo.pdf" },
+      { label: "Demo Deck", url: "/biocharlife/biocharlife-demo.pdf" },
       { label: "Read case study", url: "/case/biocharlife" },
     ],
   },
@@ -218,12 +218,12 @@ export default function Portfolio() {
            </a>
 
            <div className="ml-auto flex gap-2">
-            <Button asChild size="sm" className="rounded-2xl">
+            <Button asChild size="sm" className="rounded-2xl bg-green-600 hover:bg-green-700 text-white border-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-600">
              <a href={CONTACT.resume} target="_blank" rel="noreferrer">
               <Download className="mr-2 h-4 w-4" /> Resume
              </a>
            </Button>
-           <Button variant="secondary" asChild size="sm" className="rounded-2xl">
+           <Button variant="secondary" asChild size="sm" className="rounded-2xl bg-[#0A66C2] hover:bg-[#004182] text-white border-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0A66C2]">
             <a href={CONTACT.linkedin} target="_blank" rel="noreferrer">
              <Linkedin className="mr-2 h-4 w-4" /> Connect
             </a>
@@ -255,7 +255,7 @@ export default function Portfolio() {
 
           <Accordion type="single" collapsible className="mt-4">
             <AccordionItem value="jpm">
-              <AccordionTrigger className="text-left text-base">More work - JPMorgan dashboards and data lineage</AccordionTrigger>
+              <AccordionTrigger className="text-left text-base">More work - Community ops tools (WhatsApp + Airtable)</AccordionTrigger>
               <AccordionContent>
                 <ProjectCard p={PROJECTS[2]} />
               </AccordionContent>
