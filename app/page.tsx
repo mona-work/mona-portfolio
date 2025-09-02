@@ -54,8 +54,10 @@ const PROJECTS = [
     ],
     tools: ["Power BI", "Airtable", "OpenAI", "Python", "AWS", "Jira"],
     links: [
-      { label: "1 pager", url: "#" },
-      { label: "Demo deck", url: "#" },
+      { label: "BiocharLife MRV flow", url: "/biocharlife/Flow.png" },
+      { lable: "Sample Screen (Demo purpose only)", url: "/biocharlife/SampleScreen.png" },
+      { lable: "Demo Deck", url: "/biocharlife/biocharlife-demo.pdf" },
+      { label: "Read case study", url: "/case/biocharlife" },
     ],
   },
   {
@@ -82,31 +84,34 @@ const PROJECTS = [
     links: [
       { label: "Flow map", url: "#" },
       { label: "Demo video", url: "#" },
+      { label: "Read case study", url: "/case/biocharlife"}
     ],
   },
   {
-    id: "jpm",
-    org: "JPMorgan Chase & Co.",
-    title: "Basel dashboards and data lineage",
-    role: "Business Analyst - Risk and Technology",
-    timeframe: "Jun 2014 - May 2018",
+    id: "ops_tooling",
+    org: "Community Ops (anonymized)",
+    title: "No-code coordination tools for field crews",
+    role: "Product/Program Lead",
+    timeframe: "2019 – 2022",
     tags: ["Finance", "Data", "Compliance"],
     problem:
-      "Risk, Finance, and Tech had conflicting definitions for liquidity metrics with quarter end near. A single source of truth was required.",
+      "Volunteer crews in low-connectivity environments needed clearer tasking, inventory, and attendance tracking.",
     approach: [
-      "Two page RFC with options and risks",
-      "Data lineage trace and shared glossary",
-      "Prototyped dashboard with production like samples",
-      "Weekly reviews and UAT with Risk and Finance",
+      "Mapped workflows and roles; created SOPs and checklists for shift handoffs",
+      "Built WhatsApp quick-reply flows for tasking and status updates",
+      "Designed Airtable bases for tasks, inventory, and attendance with offline-friendly forms",
+      "Added simple QR/ID tagging for faster check-in and tool issuance",
+      "Ran weekly retros with KPIs and iterated on runbooks"
     ],
     metrics: [
-      "Cross team sign off in 10 business days",
-      "Reconciliation effort reduced by about 60 percent",
-      "Fewer audit issues and faster closure",
+      "Onboarding time reduced ~30 percent",
+      "Coordinated 50+ volunteers across shifts",
+      "100 percent on-time delivery for scheduled ops windows",
+      "Improved clarity and offline reliability (WhatsApp + Airtable)"
     ],
-    tools: ["Tableau", "Oracle PL SQL", "Confluence", "Jira"],
+    tools: ["Airtable", "WhatsApp", "Google Apps Script", "Notion", "Figma"],
     links: [
-      { label: "Sample dashboard", url: "#" },
+      { label: "Live Demo", url: "/tool/ops" },
     ],
   },
 ];
