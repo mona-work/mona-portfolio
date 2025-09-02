@@ -54,8 +54,6 @@ const PROJECTS = [
     ],
     tools: ["Power BI", "Airtable", "OpenAI", "Python", "AWS", "Jira"],
     links: [
-      { label: "BiocharLife MRV flow", url: "/biocharlife/Flow.png" },
-      { lable: "Sample Screen (Demo purpose only)", url: "/biocharlife/SampleScreen.png" },
       { lable: "Demo Deck", url: "/biocharlife/biocharlife-demo.pdf" },
       { label: "Read case study", url: "/case/biocharlife" },
     ],
@@ -195,24 +193,44 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
       <header className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-6">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">{CONTACT.name}</h1>
-            <p className="mt-1 text-base text-muted-foreground">{CONTACT.title}</p>
-            <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4" /> {CONTACT.location}</span>
-              <a className="inline-flex items-center gap-1 hover:text-slate-900" href={`mailto:${CONTACT.email}`}><Mail className="h-4 w-4" /> {CONTACT.email}</a>
-              <a className="inline-flex items-center gap-1 hover:text-slate-900" href={`tel:${CONTACT.phone}`}><Phone className="h-4 w-4" /> {CONTACT.phone}</a>
-              <a className="inline-flex items-center gap-1 hover:text-slate-900" href={CONTACT.linkedin} target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4" /> LinkedIn</a>
-            </div>
+        <div className="space-y-4">
+          {/* ONE LINE: Name | Roles .................. Location */}
+          <div className="flex items-baseline gap-3 flex-nowrap whitespace-nowrap overflow-x-auto">
+           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">{CONTACT.name}</h1>
+           <span className="text-slate-400">|</span>
+           <span className="text-base md:text-lg text-muted-foreground">
+            {CONTACT.title}
+           </span>
+           <span className="ml-auto inline-flex items-center gap-1 text-sm md:text-base text-muted-foreground">
+            <MapPin className="h-4 w-4" /> {CONTACT.location}
+           </span>
+          </div>
+          {/* Row 2: contact + buttons */}
+          <div className="flex flex-wrap items-center gap-3">
+           <a className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-slate-900" href={`mailto:${CONTACT.email}`}>
+            <Mail className="h-4 w-4" /> {CONTACT.email}
+           </a>
+           <a className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-slate-900" href={`tel:${CONTACT.phone}`}>
+            <Phone className="h-4 w-4" /> {CONTACT.phone}
+           </a>
+           <a className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-slate-900" href={CONTACT.linkedin} target="_blank" rel="noreferrer">
+           <Linkedin className="h-4 w-4" /> LinkedIn
+           </a>
 
+           <div className="ml-auto flex gap-2">
             <Button asChild size="sm" className="rounded-2xl">
-              <a href={CONTACT.resume} target="_blank" rel="noreferrer"><Download className="mr-2 h-4 w-4" /> Resume</a>
-            </Button>
-            <Button variant="secondary" asChild size="sm" className="rounded-2xl">
-              <a href={CONTACT.linkedin} target="_blank" rel="noreferrer"><Linkedin className="mr-2 h-4 w-4" /> Connect</a>
-            </Button>
+             <a href={CONTACT.resume} target="_blank" rel="noreferrer">
+              <Download className="mr-2 h-4 w-4" /> Resume
+             </a>
+           </Button>
+           <Button variant="secondary" asChild size="sm" className="rounded-2xl">
+            <a href={CONTACT.linkedin} target="_blank" rel="noreferrer">
+             <Linkedin className="mr-2 h-4 w-4" /> Connect
+            </a>
+           </Button>
+         </div>
         </div>
-
+       </div>
         <p className="mt-6 max-w-3xl text-slate-700">
           I build simple, inclusive products with measurable outcomes. Recent work includes AI assisted carbon verification and a WhatsApp health assistant. I care about low friction flows, clear UX for non technical users, and reliable delivery across different cultures and devices.
         </p>

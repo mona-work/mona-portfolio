@@ -57,7 +57,7 @@ export default function BiocharLifeCase() {
         <CardHeader><CardTitle>System at a glance</CardTitle></CardHeader>
         <CardContent>
           <Image
-            src="/portfolio/biocharlife/flow.png"
+            src="/biocharlife/flow.png"
             alt="Field App → Ingest/Validation → Reviewer Console → Auditor Package"
             width={1400} height={700} className="rounded-xl border"
           />
@@ -70,7 +70,7 @@ export default function BiocharLifeCase() {
           <CardHeader><CardTitle>Reviewer Console (mock)</CardTitle></CardHeader>
           <CardContent>
             <Image
-              src="/portfolio/biocharlife/reviewer_console.png"
+              src="/biocharlife/reviewer_console.png"
               alt="Reviewer console mock"
               width={1400} height={900} className="rounded-xl border"
             />
@@ -82,7 +82,7 @@ export default function BiocharLifeCase() {
           <CardHeader><CardTitle>Field capture (sample)</CardTitle></CardHeader>
           <CardContent>
             <Image
-              src="/portfolio/biocharlife/sample_trench_blurred.png"
+              src="/biocharlife/sample_trench_blurred.png"
               alt="Sample field photo (blurred)"
               width={1400} height={900} className="rounded-xl border"
             />
@@ -127,21 +127,21 @@ export default function BiocharLifeCase() {
         <Card className="rounded-2xl shadow-sm overflow-hidden">
           <CardHeader><CardTitle>Median Review Time</CardTitle></CardHeader>
           <CardContent>
-            <Image src="/portfolio/biocharlife/chart_review_time.png" alt="Review time chart"
+            <Image src="/biocharlife/chart_review_time.png" alt="Review time chart"
               width={1200} height={800} className="rounded-xl border" />
           </CardContent>
         </Card>
         <Card className="rounded-2xl shadow-sm overflow-hidden">
           <CardHeader><CardTitle>Verification Error Rate</CardTitle></CardHeader>
           <CardContent>
-            <Image src="/portfolio/biocharlife/chart_error_rate.png" alt="Error rate chart"
+            <Image src="/biocharlife/chart_error_rate.png" alt="Error rate chart"
               width={1200} height={800} className="rounded-xl border" />
           </CardContent>
         </Card>
         <Card className="rounded-2xl shadow-sm overflow-hidden">
           <CardHeader><CardTitle>Cumulative Verified Credits</CardTitle></CardHeader>
           <CardContent>
-            <Image src="/portfolio/biocharlife/chart_credits_cumulative.png" alt="Credits cumulative chart"
+            <Image src="/biocharlife/chart_credits_cumulative.png" alt="Credits cumulative chart"
               width={1200} height={800} className="rounded-xl border" />
           </CardContent>
         </Card>
