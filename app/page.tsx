@@ -18,14 +18,14 @@ const CONTACT = {
   email: "mona.singh08@gmail.com",
   phone: "201-589-0640",
   linkedin: "https://www.linkedin.com/in/mona-singh-67471810",
-  resume: "#" // add resume pdf link when ready
+  resume: "https://drive.google.com/file/d/1MRXeFRmIf3oHCZfr1nnFcB_BzYWwcW8K/view?usp=drive_link" // add resume pdf link when ready
 };
 
 const HIGHLIGHTS = [
-  { label: "Carbon credits verified", value: "10,000+" },
-  { label: "WhatsApp health users", value: "5,000+" },
-  { label: "Countries delivered", value: "4" },
-  { label: "Review time cut", value: "10d → 3d" },
+  { label: "Verified credits delivered (MRV program lead)", value: "10,000+" },
+  { label: "Users on WhatsApp assistant (CPO/TPM)", value: "5,000+" },
+  { label: "Basel III / CCAR programs (JPMorgan)", value: "3 BUs" },
+  { label: "Cross-functional contributors aligned", value: "100+" },
 ];
 
 const PROJECTS = [
@@ -37,7 +37,7 @@ const PROJECTS = [
     timeframe: "Dec 2023 - May 2025",
     tags: ["AI", "Carbon", "MRV", "Field ops", "Low connectivity"],
     problem:
-      "Standards were evolving, data quality was uneven, and auditors needed strong evidence. The team needed one simple, reliable MRV flow across four countries.",
+      "Carbon credits are issued only when removals are measured, reported, and verified. In smallholder biochar, tCO₂e relies on consistent capture of trench dimensions, feedstock mass and moisture, method, GPS, and date. Across four countries our data was uneven, standards kept changing, connectivity was weak, and auditors required reproducible evidence with a clear decision trail. Without this, issuance is delayed and payouts stall.",
     approach: [
       "Defined success - auditor acceptance, farmer usability, 3 day review target",
       "Structured data schema with human checklists and model assisted checks",
@@ -232,7 +232,7 @@ export default function Portfolio() {
         </div>
        </div>
         <p className="mt-6 max-w-3xl text-slate-700">
-          I build simple, inclusive products with measurable outcomes. Recent work includes AI assisted carbon verification and a WhatsApp health assistant. I care about low friction flows, clear UX for non technical users, and reliable delivery across different cultures and devices.
+          Technical Program Manager who ships complex, cross-functional programs with clear metrics. I’ve led Apple production operations, built risk and compliance data systems at JPMorgan and UBS, and delivered AI-assisted carbon MRV and a WhatsApp health assistant. I drive alignment, simple workflows, and reliable delivery across teams and countries. 
         </p>
       </header>
 
@@ -268,15 +268,16 @@ export default function Portfolio() {
         <section className="grid md:grid-cols-3 gap-6">
           <Card className="rounded-2xl shadow-sm md:col-span-2">
             <CardHeader>
-              <CardTitle>About</CardTitle>
+              <CardTitle>How I work</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-slate-700">
-              <p>
-                My background spans computer engineering, product and data work in health tech and finance, and program leadership in climate tech. I take a test and learn approach, write clear docs, and partner closely with design and engineering.
-              </p>
-              <p>
-                I have practiced Vipassana in the Theravada tradition with more than 1,500 hours of meditation and several month long retreats. That training shaped my focus, empathy, and calm execution under ambiguity.
-              </p>
+              <p> I focus on clear execution and measurable outcomes.</p>
+               <ul className="list-disc pl-5 mt-3 space-y-1">
+               <li>Roadmaps and KPIs that tie to user or audit goals</li>
+               <li>Weekly reviews, RAID tracking, and release gates</li>
+               <li>Decision logs and change control for traceability</li>
+               <li>Calm incident handling and fast follow-through</li>
+               </ul>
             </CardContent>
           </Card>
 

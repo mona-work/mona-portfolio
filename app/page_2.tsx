@@ -22,10 +22,10 @@ const CONTACT = {
 };
 
 const HIGHLIGHTS = [
-  { label: "Carbon credits verified", value: "10,000+" },
-  { label: "WhatsApp health users", value: "5,000+" },
-  { label: "Countries delivered", value: "4" },
-  { label: "Review time cut", value: "10d → 3d" },
+  { label: "Verified credits delivered (MRV program lead)", value: "10,000+" },
+  { label: "Users on WhatsApp assistant (CPO/TPM)", value: "5,000+" },
+  { label: "Basel III / CCAR programs (JPMorgan)", value: "3 BUs" },
+  { label: "Cross-functional contributors aligned", value: "100+" },
 ];
 
 const PROJECTS = [
@@ -37,7 +37,7 @@ const PROJECTS = [
     timeframe: "Dec 2023 - May 2025",
     tags: ["AI", "Carbon", "MRV", "Field ops", "Low connectivity"],
     problem:
-      "Standards were evolving, data quality was uneven, and auditors needed strong evidence. The team needed one simple, reliable MRV flow across four countries.",
+      "Carbon credits are issued only when removals are measured, reported, and verified. In smallholder biochar, tCO₂e relies on consistent capture of trench dimensions, feedstock mass and moisture, method, GPS, and date. Across four countries our data was uneven, standards kept changing, connectivity was weak, and auditors required reproducible evidence with a clear decision trail. Without this, issuance is delayed and payouts stall.",
     approach: [
       "Defined success - auditor acceptance, farmer usability, 3 day review target",
       "Structured data schema with human checklists and model assisted checks",
@@ -54,9 +54,7 @@ const PROJECTS = [
     ],
     tools: ["Power BI", "Airtable", "OpenAI", "Python", "AWS", "Jira"],
     links: [
-      { label: "BiocharLife MRV flow", url: "/biocharlife/Flow.png" },
-      { lable: "Sample Screen (Demo purpose only)", url: "/biocharlife/SampleScreen.png" },
-      { lable: "Demo Deck", url: "/biocharlife/biocharlife-demo.pdf" },
+      { label: "Demo Deck", url: "/biocharlife/biocharlife-demo.pdf" },
       { label: "Read case study", url: "/case/biocharlife" },
     ],
   },
@@ -195,26 +193,46 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
       <header className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-6">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">{CONTACT.name}</h1>
-            <p className="mt-1 text-base text-muted-foreground">{CONTACT.title}</p>
-            <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4" /> {CONTACT.location}</span>
-              <a className="inline-flex items-center gap-1 hover:text-slate-900" href={`mailto:${CONTACT.email}`}><Mail className="h-4 w-4" /> {CONTACT.email}</a>
-              <a className="inline-flex items-center gap-1 hover:text-slate-900" href={`tel:${CONTACT.phone}`}><Phone className="h-4 w-4" /> {CONTACT.phone}</a>
-              <a className="inline-flex items-center gap-1 hover:text-slate-900" href={CONTACT.linkedin} target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4" /> LinkedIn</a>
-            </div>
+        <div className="space-y-4">
+          {/* ONE LINE: Name | Roles .................. Location */}
+          <div className="flex items-baseline gap-3 flex-nowrap whitespace-nowrap overflow-x-auto">
+           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">{CONTACT.name}</h1>
+           <span className="text-slate-400">|</span>
+           <span className="text-base md:text-lg text-muted-foreground">
+            {CONTACT.title}
+           </span>
+           <span className="ml-auto inline-flex items-center gap-1 text-sm md:text-base text-muted-foreground">
+            <MapPin className="h-4 w-4" /> {CONTACT.location}
+           </span>
+          </div>
+          {/* Row 2: contact + buttons */}
+          <div className="flex flex-wrap items-center gap-3">
+           <a className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-slate-900" href={`mailto:${CONTACT.email}`}>
+            <Mail className="h-4 w-4" /> {CONTACT.email}
+           </a>
+           <a className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-slate-900" href={`tel:${CONTACT.phone}`}>
+            <Phone className="h-4 w-4" /> {CONTACT.phone}
+           </a>
+           <a className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-slate-900" href={CONTACT.linkedin} target="_blank" rel="noreferrer">
+           <Linkedin className="h-4 w-4" /> LinkedIn
+           </a>
 
-            <Button asChild size="sm" className="rounded-2xl">
-              <a href={CONTACT.resume} target="_blank" rel="noreferrer"><Download className="mr-2 h-4 w-4" /> Resume</a>
-            </Button>
-            <Button variant="secondary" asChild size="sm" className="rounded-2xl">
-              <a href={CONTACT.linkedin} target="_blank" rel="noreferrer"><Linkedin className="mr-2 h-4 w-4" /> Connect</a>
-            </Button>
+           <div className="ml-auto flex gap-2">
+            <Button asChild size="sm" className="rounded-2xl bg-green-600 hover:bg-green-700 text-white border-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-600">
+             <a href={CONTACT.resume} target="_blank" rel="noreferrer">
+              <Download className="mr-2 h-4 w-4" /> Resume
+             </a>
+           </Button>
+           <Button variant="secondary" asChild size="sm" className="rounded-2xl bg-[#0A66C2] hover:bg-[#004182] text-white border-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0A66C2]">
+            <a href={CONTACT.linkedin} target="_blank" rel="noreferrer">
+             <Linkedin className="mr-2 h-4 w-4" /> Connect
+            </a>
+           </Button>
+         </div>
         </div>
-
+       </div>
         <p className="mt-6 max-w-3xl text-slate-700">
-          I build simple, inclusive products with measurable outcomes. Recent work includes AI assisted carbon verification and a WhatsApp health assistant. I care about low friction flows, clear UX for non technical users, and reliable delivery across different cultures and devices.
+          Technical Program Manager who ships complex, cross-functional programs with clear metrics. I’ve led Apple production operations, built risk and compliance data systems at JPMorgan and UBS, and delivered AI-assisted carbon MRV and a WhatsApp health assistant. I drive alignment, simple workflows, and reliable delivery across teams and countries. 
         </p>
       </header>
 
@@ -237,7 +255,7 @@ export default function Portfolio() {
 
           <Accordion type="single" collapsible className="mt-4">
             <AccordionItem value="jpm">
-              <AccordionTrigger className="text-left text-base">More work - JPMorgan dashboards and data lineage</AccordionTrigger>
+              <AccordionTrigger className="text-left text-base">More work - Community ops tools (WhatsApp + Airtable)</AccordionTrigger>
               <AccordionContent>
                 <ProjectCard p={PROJECTS[2]} />
               </AccordionContent>
@@ -250,15 +268,16 @@ export default function Portfolio() {
         <section className="grid md:grid-cols-3 gap-6">
           <Card className="rounded-2xl shadow-sm md:col-span-2">
             <CardHeader>
-              <CardTitle>About</CardTitle>
+              <CardTitle>How I work</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-slate-700">
-              <p>
-                My background spans computer engineering, product and data work in health tech and finance, and program leadership in climate tech. I take a test and learn approach, write clear docs, and partner closely with design and engineering.
-              </p>
-              <p>
-                I have practiced Vipassana in the Theravada tradition with more than 1,500 hours of meditation and several month long retreats. That training shaped my focus, empathy, and calm execution under ambiguity.
-              </p>
+              <p> I focus on clear execution and measurable outcomes.</p>
+               <ul className="list-disc pl-5 mt-3 space-y-1">
+               <li>Roadmaps and KPIs that tie to user or audit goals</li>
+               <li>Weekly reviews, RAID tracking, and release gates</li>
+               <li>Decision logs and change control for traceability</li>
+               <li>Calm incident handling and fast follow-through</li>
+               </ul>
             </CardContent>
           </Card>
 
