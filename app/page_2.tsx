@@ -18,15 +18,16 @@ const CONTACT = {
   email: "mona.singh08@gmail.com",
   phone: "201-589-0640",
   linkedin: "https://www.linkedin.com/in/mona-singh-67471810",
-  resume: "#" // add resume pdf link when ready
+  resume: "https://drive.google.com/file/d/1MRXeFRmIf3oHCZfr1nnFcB_BzYWwcW8K/view?usp=drive_link" // add resume pdf link when ready
 };
 
 const HIGHLIGHTS = [
-  { label: "Verified credits delivered (MRV program lead)", value: "10,000+" },
-  { label: "Users on WhatsApp assistant (CPO/TPM)", value: "5,000+" },
-  { label: "Basel III / CCAR programs (JPMorgan)", value: "3 BUs" },
-  { label: "Cross-functional contributors aligned", value: "100+" },
+  { value: "4 countries",    label: "MRV rollout led (TPM, BiocharLife)" },
+  { value: "Basel III & CCAR", label: "Reg reporting delivered (JPMorgan)" },
+  { value: "5,000+ users",   label: "WhatsApp triage + clinician portal launched (ElevarSalud)" },
+  { value: "30–40% faster",  label: "Automated QA reconciliation (UBS)" },
 ];
+
 
 const PROJECTS = [
   {

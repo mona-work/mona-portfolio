@@ -6,14 +6,35 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import CompanyLogos from "@/components/ui/CompanyLogos";
+import SdlcWheel from "@/components/ui/SdlcWheel";
+import { Check } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import { Search, Users, Target, ClipboardList, Hammer, ShieldCheck, Rocket, LineChart } from "lucide-react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import Image from "next/image";
+import {
+  Gauge,    // prioritization under pressure
+  Braces,   // technical fluency
+  BarChart, // analytical rigor
+  Handshake,// stakeholder trust
+  Globe2,   // cross-cultural
+  Shield,   // calm/steady leadership
+  Zap       // builder/automation
+} from "lucide-react";
 
 // Mona Singh - Product Portfolio
 // Note: Replace link placeholders with your actual resume, LinkedIn, and case study assets.
 
+const Brand = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-emerald-700 dark:text-emerald-400 font-medium">
+    {children}
+  </span>
+);
+
 const CONTACT = {
   name: "Mona Singh",
-  title: "Product Manager • Technical Program Manager",
+  title: "Technical Program Manager • Project/Product Manager",
   location: "New York City, NY",
   email: "mona.singh08@gmail.com",
   phone: "201-589-0640",
@@ -22,10 +43,28 @@ const CONTACT = {
 };
 
 const HIGHLIGHTS = [
-  { label: "Verified credits delivered (MRV program lead)", value: "10,000+" },
-  { label: "Users on WhatsApp assistant (CPO/TPM)", value: "5,000+" },
-  { label: "Basel III / CCAR programs (JPMorgan)", value: "3 BUs" },
-  { label: "Cross-functional contributors aligned", value: "100+" },
+  { value: "4 countries",    label: "MRV rollout led (TPM, BiocharLife)" },
+  { value: "Basel III & CCAR", label: "Reg reporting delivered (JPMorgan)" },
+  { value: "5,000+ users",   label: "WhatsApp triage + clinician portal launched (ElevarSalud)" },
+  { value: "30–40% faster",  label: "Automated QA reconciliation (UBS)" },
+];
+
+const HOW_STEPS = [
+  { title: "Understand", icon: Search,       blurb: "Clarify problem, users, constraints" },
+  { title: "Align",      icon: Users,        blurb: "Stakeholders, KPIs, risks, owner map" },
+  { title: "Plan",       icon: ClipboardList,blurb: "Roadmap, milestones, decision log" },
+  { title: "Build",      icon: Hammer,       blurb: "MVP first, unblock fast, clear gates" },
+  { title: "Validate",   icon: ShieldCheck,  blurb: "Data rules, QA, pilots in 1 region" },
+  { title: "Launch",     icon: Rocket,       blurb: "Measured rollout with kill switch" },
+  { title: "Operate",    icon: LineChart,    blurb: "Dashboards, SLAs/SLOs, on-call" },
+  { title: "Improve",    icon: Target,       blurb: "Weekly metrics → actions → iterate" },
+];
+
+const QUALITIES = [
+  "Synthesis & clarity", "Prioritization under pressure",
+  "Technical fluency", "Analytical rigor",
+  "Stakeholder trust", "Cross-cultural collaboration",
+  "Calm leadership", "Builder mindset"
 ];
 
 const PROJECTS = [
@@ -38,21 +77,23 @@ const PROJECTS = [
     tags: ["AI", "Carbon", "MRV", "Field ops", "Low connectivity"],
     problem:
       "Carbon credits are issued only when removals are measured, reported, and verified. In smallholder biochar, tCO₂e relies on consistent capture of trench dimensions, feedstock mass and moisture, method, GPS, and date. Across four countries our data was uneven, standards kept changing, connectivity was weak, and auditors required reproducible evidence with a clear decision trail. Without this, issuance is delayed and payouts stall.",
-    approach: [
-      "Defined success - auditor acceptance, farmer usability, 3 day review target",
-      "Structured data schema with human checklists and model assisted checks",
-      "Offline friendly capture with image quality gates and GPS prompts",
-      "Duplicate image detection and trench boundary hints via OpenAI APIs",
-      "Weekly metrics and decision log to drive iterations",
-    ],
+approach: [
+  "Align KPIs with auditors, field, data, and eng; set 3-day SLA and first-cycle pass.",
+  "Map the flow and rules: canonical schema, thresholds, routing; publish decision/owner log.",
+  "Pilot one region (offline-ready); fix UX friction from field ride-alongs; capture consent/device IDs.",
+  "Instrument end-to-end: events and dashboards; test rules on history; adjust before scale.",
+  "Enable reviewers: simple console, reason codes, re-capture loop; SOPs and quick training.",
+  "Roll out and run: simulate → pilot → country release with version tags; weekly KPIs → 2–3 actions.",
+],
+
     metrics: [
+      "100+ MRV users across 4 countries; first-cycle auditor acceptance",
       "10,000+ verified credits",
       "Median review time cut from about 10 days to 3",
       "Verification errors down roughly 15 percent",
       "First cycle auditor acceptance",
-      "$500k investor interest influenced at Carbon Unbound",
     ],
-    tools: ["Power BI", "Airtable", "OpenAI", "Python", "AWS", "Jira"],
+    tools: ["Power BI", "Airtable", "OpenAI", "Python", "AWS", "React"],
     links: [
       { label: "Demo Deck", url: "/biocharlife/biocharlife-demo.pdf" },
       { label: "Read case study", url: "/case/biocharlife" },
@@ -66,19 +107,21 @@ const PROJECTS = [
     timeframe: "Dec 2022 - Nov 2023",
     tags: ["Health", "WhatsApp", "Low literacy", "Product"],
     problem:
-      "Underserved communities needed simple guidance and follow ups on basic health topics, with low bandwidth and first time smartphone users.",
-    approach: [
-      "Scoped MVP flows that worked with patchy networks",
-      "Iterated with community health workers and added quick reply patterns",
-      "Clear copy and inclusive onboarding for non technical users",
-      "Twilio and PostgreSQL integration, 90 percent uptime",
-    ],
+      "In Mexico, access to primary care and telemedicine was fragmented. Many neighborhood clinics did not use an EMR or EHR, so patient history, vitals, and recommendations lived in paper files or scattered WhatsApp chats. Expats and travelers struggled to find English speaking clinicians on short notice, and pricing and availability were inconsistent. Connectivity was uneven, which made scheduling, reminders, and follow-ups unreliable. Clinicians were already overloaded, so outreach and documentation slipped, and there was no audit-ready trail of advice or next steps.",
+     approach: [
+    "Aligned scope with clinicians/CHWs; prioritized triage, reminders, follow-ups, booking.",
+    "MVP on WhatsApp with quick-replies, bilingual copy, low-typing flows; images/voice notes.",
+    "Clinician portal for bot→human handoff, context, templates, tagged reasons; response-time SLAs.",
+    "Instrumented funnel/drop-offs; weekly releases to tune copy and paths.",
+    "Twilio + PostgreSQL; consent + audit logging; targeted 90%+ uptime."
+  ],
     metrics: [
-      "5,000+ users reached",
-      "+20 percent adoption after iterative releases",
-      "Delivery cycles down about 25 percent",
+         "5,000+ unique users",
+    "+20% adoption after iterations",
+    "Delivery cycles ~25% faster",
+    "Standardized clinician handoff with audit-ready records"
     ],
-    tools: ["Twilio", "PostgreSQL", "Figma", "Jira", "Monday"],
+    tools: ["Twilio", "PostgreSQL", "Figma", "Asna", "React"],
     links: [
       { label: "Flow map", url: "#" },
       { label: "Demo video", url: "#" },
@@ -93,7 +136,7 @@ const PROJECTS = [
     timeframe: "2019 – 2022",
     tags: ["Finance", "Data", "Compliance"],
     problem:
-      "Volunteer crews in low-connectivity environments needed clearer tasking, inventory, and attendance tracking.",
+      "Temporary field operations had scattered WhatsApp threads, paper checklists, and no single source of truth. Low connectivity and rotating crews made task handoffs, inventory control, and attendance unreliable, which created delays and lost tools.",
     approach: [
       "Mapped workflows and roles; created SOPs and checklists for shift handoffs",
       "Built WhatsApp quick-reply flows for tasking and status updates",
@@ -218,7 +261,7 @@ export default function Portfolio() {
            </a>
 
            <div className="ml-auto flex gap-2">
-            <Button asChild size="sm" className="rounded-2xl bg-green-600 hover:bg-green-700 text-white border-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-600">
+            <Button asChild size="sm" className="rounded-2xl bg-emerald-800 hover:bg-emerald-700 text-white border-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-600">
              <a href={CONTACT.resume} target="_blank" rel="noreferrer">
               <Download className="mr-2 h-4 w-4" /> Resume
              </a>
@@ -232,7 +275,7 @@ export default function Portfolio() {
         </div>
        </div>
         <p className="mt-6 max-w-3xl text-slate-700">
-          Technical Program Manager who ships complex, cross-functional programs with clear metrics. I’ve led Apple production operations, built risk and compliance data systems at JPMorgan and UBS, and delivered AI-assisted carbon MRV and a WhatsApp health assistant. I drive alignment, simple workflows, and reliable delivery across teams and countries. 
+          Technical Program Manager with end-to-end SDLC experience. I simplify complex systems, drive metrics and risk management, and lead cross-functional programs. I align teams, design simple workflows, and deliver reliably across countries, from <Brand>Apple</Brand>,  <Brand>JPMorgan</Brand> and <Brand>UBS</Brand> to AI assisted MRV and a full telemedicine stack spanning WhatsApp triage, a clinician web portal, and live doctor consultations.
         </p>
       </header>
 
@@ -243,6 +286,52 @@ export default function Portfolio() {
           ))}
         </section>
 
+        <Separator className="my-10" />
+
+<section className="space-y-4">
+  <h2 className="text-2xl font-semibold tracking-tight">Roles across the SDLC</h2>
+  {/* Use defaults: */}
+  <div className="pt-2 md:pt-4">
+  <SdlcWheel />
+
+  {/* Or pass a custom list: */}
+  {/* 
+  <SdlcWheel phases={[
+    { phase: "Plan / Requirements", role: "Business Analyst", company: "JPMorgan", when: "2014–2018", color: "bg-indigo-600" },
+    { phase: "Design",              role: "PM / Co-founder",  company: "ElevarSalud", when: "2022–2023", color: "bg-emerald-600" },
+    { phase: "Build",               role: "TPM",              company: "BiocharLife", when: "2023–2025", color: "bg-sky-600" },
+    { phase: "Test",                role: "QA Engineer",      company: "UBS",         when: "2012–2014", color: "bg-amber-600" },
+    { phase: "Release",             role: "Production Support", company: "Apple",     when: "2008–2012", color: "bg-rose-600" },
+    { phase: "Operate / Iterate",   role: "TPM",              company: "BiocharLife", when: "2023–2025", color: "bg-purple-600" },
+  ]} />
+  */}
+ </div>
+</section>
+        
+{/* How I work (stepper) */}
+<Separator className="my-10" />
+<div className="bg-slate-50">
+<section className="grid md:grid-cols-3 gap-6">
+  <Card className="rounded-2xl shadow-sm md:col-span-3">
+    <CardHeader><CardTitle>How I work</CardTitle></CardHeader>
+    <CardContent className="space-y-3 text-slate-700">
+<ul className="grid grid-cols-2 md:grid-cols-4 gap-3">
+  {HOW_STEPS.map((s) => (
+    <li key={s.title} className="flex items-start gap-2">
+      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 shrink-0">
+        <s.icon className="h-3.5 w-3.5" />
+      </span>
+      <div className="text-sm">
+        <div className="font-medium text-slate-900">{s.title}</div>
+        <div className="text-slate-700 text-xs">{s.blurb}</div>
+      </div>
+    </li> 
+  ))}     
+</ul>    
+    </CardContent>
+  </Card>
+</section> 
+</div>
         <Separator className="my-10" />
 
         <section className="space-y-6">
@@ -265,32 +354,91 @@ export default function Portfolio() {
 
         <Separator className="my-10" />
 
-        <section className="grid md:grid-cols-3 gap-6">
-          <Card className="rounded-2xl shadow-sm md:col-span-2">
-            <CardHeader>
-              <CardTitle>How I work</CardTitle>
+        <section className="grid md:grid-cols-3 gap-6 items-stretch">
+          <Card className="h-fullrounded-2xl shadow-sm md:col-span-2">
+            <CardHeader className="pb-3">
+              <CardTitle>About</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-slate-700">
-              <p> I focus on clear execution and measurable outcomes.</p>
-               <ul className="list-disc pl-5 mt-3 space-y-1">
-               <li>Roadmaps and KPIs that tie to user or audit goals</li>
-               <li>Weekly reviews, RAID tracking, and release gates</li>
-               <li>Decision logs and change control for traceability</li>
-               <li>Calm incident handling and fast follow-through</li>
-               </ul>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-base leading-7">
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <Sparkles className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Structured thinking</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <Gauge className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Prioritization under pressure</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <Braces className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Technical fluency</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <BarChart className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Analytical rigor</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <Handshake className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Trusted cross-function partner</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <Globe2 className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Cross-cultural collaboration</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <Shield className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Calm leadership</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center shrink-0">
+      <Zap className="h-4 w-4 text-emerald-600" />
+    </span>
+    <span>Builder mindset</span>
+  </li>
+</ul>
+
             </CardContent>
           </Card>
 
-          <Card className="rounded-2xl shadow-sm">
-            <CardHeader>
+          <Card className="h-full rounded-2xl shadow-sm md:col-span-1">
+            <CardHeader className="pb-3">
               <CardTitle>Contact</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
+               <div className="flex items-center gap-3">
+    <Image
+      src="/profile.png"
+      alt="Mona Singh headshot"
+      width={56}
+      height={56}
+      className="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-100 shadow-sm"
+      priority={false}
+    />
+    <div className="leading-tight">
+      <div className="font-medium text-slate-900">{CONTACT.name}</div>
+      <div className="text-xs text-muted-foreground">{CONTACT.title}</div>
+    </div>
+  </div>
+            <div className="space-y-1.5 text-sm text-slate-700">
               <a className="flex items-center gap-2 hover:text-slate-900" href={`mailto:${CONTACT.email}`}>
                 <Mail className="h-4 w-4" /> {CONTACT.email}
               </a>
               <a className="flex items-center gap-2 hover:text-slate-900" href={`tel:${CONTACT.phone}`}>
-                <Phone className="h-4 w-4" /> {CONTACT.phone}
+                <Phone className="h-4  w-4" /> {CONTACT.phone}
               </a>
               <div className="flex items-center gap-2 text-slate-700">
                 <MapPin className="h-4 w-4" /> {CONTACT.location}
@@ -298,11 +446,18 @@ export default function Portfolio() {
               <a className="flex items-center gap-2 hover:text-slate-900" href={CONTACT.linkedin} target="_blank" rel="noreferrer">
                 <Linkedin className="h-4 w-4" /> LinkedIn profile
               </a>
+             </div>
             </CardContent>
           </Card>
         </section>
       </main>
 
+      <Separator className="my-12" />
+     <div className="bg-slate-50">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-8">
+        <CompanyLogos />
+       </section>
+       </div>
       <footer className="max-w-6xl mx-auto px-4 sm:px-6 pb-10 text-xs text-muted-foreground">
         <p>© {new Date().getFullYear()} Mona Singh. Built with care and clarity.</p>
       </footer>

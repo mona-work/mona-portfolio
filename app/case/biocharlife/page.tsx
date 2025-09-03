@@ -27,8 +27,7 @@ export default function BiocharLifeCase() {
       <Card className="rounded-2xl shadow-sm">
         <CardHeader><CardTitle>Problem</CardTitle></CardHeader>
         <CardContent className="text-slate-700">
-          Standards were evolving, field data was uneven, and auditors required strong, reproducible evidence.
-          The organization needed one simple, reliable MRV flow that worked across four countries.
+           Carbon credits are issued only when removals are measured, reported, and verified. In smallholder biochar, tCO₂e relies on consistent capture of trench dimensions, feedstock mass and moisture, method, GPS, and date. Across four countries our data was uneven, standards kept changing, connectivity was weak, and auditors required reproducible evidence with a clear decision trail. Without this, issuance is delayed and payouts stall.
         </CardContent>
       </Card>
 
