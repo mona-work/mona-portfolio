@@ -6,7 +6,7 @@ export default function Pill({
   className = "",
 }: {
   children: React.ReactNode;
-  accent?: "emerald" | "sky" | "violet" | "amber" | "slate";
+  accent?: "emerald" | "sky" | "violet" | "amber" | "slate" | "slateDark";
   className?: string;
 }) {
   const color: Record<string, string> = {
