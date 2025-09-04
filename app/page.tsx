@@ -108,6 +108,7 @@ type Project = {
   images?: { src: string; caption: string; width?: number; height?: number }[];
   glossary?: { term: string; text: string }[];
   disclaimer?: string;
+  links?: { label: string; url: string }[]; 
 };
 
 const PROJECTS: Project[] = [
