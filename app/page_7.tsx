@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import CompanyLogos from "@/components/ui/CompanyLogos";
 import SdlcWheel from "@/components/ui/SdlcWheel";
-import Pill from "@/components/ui/Pill";
 import { Check } from "lucide-react";
 import { CheckCircle2 } from "lucide-react";
 import { Search, Users, Target, ClipboardList, Hammer, ShieldCheck, Rocket, LineChart } from "lucide-react";
@@ -33,29 +32,6 @@ const Brand = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 
-const CERTS = ["PMP®", "CSPO®"];
-
-const SKILLS = {
-  cloudInfra: [
-    "AWS (EC2, S3, Lambda)",
-    "Unix/Linux",
-    "Infrastructure automation",
-    "CI/CD concepts"
-  ],
-  dataAnalytics: [
-    "ETL/DWH",
-    "Python data pipelines",
-    "Tableau",
-    "Power BI",
-    "Airtable",
-    "OLAP cubes",
-  ],
-  databases: ["PostgreSQL", "Oracle"],
-  languages: ["Python", "SQL", "PL/SQL", "Shell", "VBA/Macros"],
-  frontend: ["React", "Figma", "Balsamiq"],
-  delivery: ["Jira", "Confluence", "Asana", "ServiceNow", "Notion"],
-};
-
 const CONTACT = {
   name: "Mona Singh",
   title: "Technical Program Manager • Project/Product Manager",
@@ -67,10 +43,10 @@ const CONTACT = {
 };
 
 const HIGHLIGHTS = [
-  { tag: "JPMorgan",    value: "100+ stakeholders", label: "Aligned risk, data, and engineering for Basel III & CCAR delivery" },
-  { tag: "BiocharLife", value: "4 countries",       label: "Led MRV rollout and operating cadence (TPM)" },
-  { tag: "ElevarSalud", value: "5,000+ users",      label: "Launched WhatsApp triage + clinician portal" },
-  { tag: "UBS",         value: "~35% faster QA",    label: "Automated reconciliation across Oracle / OLAP pipelines" },
+  { value: "4 countries",    label: "MRV rollout led (TPM, BiocharLife)" },
+  { value: "Basel III & CCAR", label: "Reg reporting delivered (JPMorgan)" },
+  { value: "5,000+ users",   label: "WhatsApp triage + clinician portal launched (ElevarSalud)" },
+  { value: "30–40% faster",  label: "Automated QA reconciliation (UBS)" },
 ];
 
 const HOW_STEPS = [
@@ -118,23 +94,27 @@ const PROJECTS: Project[] = [
     timeframe: "Dec 2023 – May 2025",
     tags: ["AI/ML", "MRV", "Field ops", "Low connectivity"],
     problem:
-      "Carbon credit issuance requires verified evidence (trench, feedstock, GPS/date, photos tied to project IDs). Across four countries the data was inconsistent, connectivity was patchy, and rules kept changing—slowing reviews and delaying payouts.",
+      "Issuance depended on consistent capture and auditable decisions; data quality varied across 4 countries and standards evolved, delaying payouts.",
     approach: [
-         "Set success criteria and KPIs: first-cycle approval and 3-day median time to decision. Added end-to-end metrics from submission to auditor package to expose bottlenecks and guide improvements.",
-"Field capture operations: issued SOPs and checklists for the required evidence set; made the app offline-first with prompts and quality nudges; ensured consent and reliable upload/retry.",
-"Validation and routing: standardized the data model; added automated quality gates (location inside allowed area, time sanity, image clarity); auto-pass vs. review queues based on rules.",
-"Reviewer workflow: provided a review console with reason codes, standard outcomes (approve / reject / recapture), and override policy with rationale for traceability.",
-"Governance and change control: maintained a thresholds registry and decision log; used simulate → pilot (one region) → full release with version tags and rollback"
+      "Set a 3-day review SLA and first-cycle auditor acceptance; instrumented end-to-end events and KPIs.",
+      "Offline capture with on-device nudges; backend validation and routing; reviewer console with reason codes.",
+      "Perceptual hash for duplicate flags; thresholds registry and decision log; simulate → pilot → release."
     ],
     metrics: [
       "10,000+ credits verified",
       "Median review time ~10 → 3 days (~70% faster)",
       "Verification errors down ~15%",
-      "Fewer rework"
+      "First-cycle auditor acceptance"
     ],
     tools: ["AWS", "Python", "Power BI", "Airtable", "OpenAI (LLM assists)"],
     explainer: {
-     title: "How it works", subtitle: "From evidence to issuance", bullets: [ "Capture: field team submits photos, GPS/date, and trench/feedstock details via an offline-friendly app.", "Auto validation: normalize the record and run quality gates; auto-pass clean items, route others to review.", "Review: verifiers decide with reason codes and required notes for any overrides.", "Auditor package: assemble a signed report with the full decision trail and deliver to the registry and auditor." ] 
+      title: "What is MRV?",
+      subtitle: "Measurement, Reporting & Verification (for carbon credits)",
+      bullets: [
+        "Measure: capture trench size, feedstock, dates, GPS, and photos.",
+        "Report: store data in a consistent record with validation checks.",
+        "Verify: reviewers/auditors confirm evidence before credits are issued."
+      ]
     },
     images: [
       {
@@ -149,13 +129,6 @@ const PROJECTS: Project[] = [
         width: 640,
         height: 360 
       },
-       {
-        src: "/biocharlife/dashboard.png",
-        caption: "Dashboard (sample / illustrative)",
-        width: 640,
-        height: 360
-      },
-      
       {
         src: "/biocharlife/Flow.png",
         caption: "System flow: capture → validate → review → auditor",
@@ -164,14 +137,7 @@ const PROJECTS: Project[] = [
       }
     ],
 disclaimer:
-  "Sample/mock visuals for illustration. No proprietary,personal data; identifiers are redacted or synthetic.",
-  glossary: [
-  { term: "MRV", text: "Measurement, Reporting, and Verification. The evidence process required before carbon credits are issued." },
-  { term: "Carbon credit", text: "A tradable certificate that represents one metric ton of CO₂-equivalent avoided or removed." },
-  { term: "Biochar", text: "Charcoal made from biomass. When put in soil it stores carbon for long periods and can generate credits." },
-  { term: "Issuance", text: "The registry creates credits after the project’s evidence is verified and approved." },
-  { term: "Verifier / Auditor", text: "Independent reviewers who confirm that evidence and decisions meet the program’s rules before issuance." },
-]
+  "Sample/mock visuals for illustration. No proprietary,personal data; identifiers are redacted or synthetic."
   },
   {
     id: "elevar",
@@ -276,70 +242,10 @@ glossary: [
   }
 ];
 
-// Uniform image card with fixed height
-// mode = "scroll" shows full image with vertical scroll inside a fixed-height frame
-// mode = "crop" crops to fill the frame (optional)
-function ImgCard({
-  src,
-  caption,
-  mode = "scroll",
-}: {
-  src: string;
-  caption: string;
-  mode?: "scroll" | "crop";
-}) {
-  const frameBase =
-    "relative w-full rounded overflow-hidden bg-white"; // scroll frame wrapper
-  const frameScroll = "max-h-48 md:max-h-56 overflow-y-auto"; // vertical scroll
-  const frameCrop   = "h-40 md:h-48"; // fixed height (no vertical scroll)
-
-  return (
-    <figure className="relative rounded-lg border bg-white p-2">
-      {/* Badge sits over the image; z-10 so it isn't hidden */}
-      <span className="absolute right-2 top-2 z-10 rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-medium text-white pointer-events-none">
-        SAMPLE
-      </span>
-
-      {/* Image frame */}
-      <div className={`${frameBase} ${mode === "scroll" ? frameScroll : frameCrop}`}>
-        {mode === "scroll" ? (
-          // FULL image; vertical scroll if taller than frame
-          <Image
-            src={src}
-            alt={`${caption} — sample / illustrative, no real data`}
-            width={1600}          // large intrinsic to keep quality
-            height={1000}
-            className="w-full h-auto block"
-            priority={false}
-          />
-        ) : (
-          // CROPPED thumbnail
-          <Image
-            src={src}
-            alt={`${caption} — sample / illustrative, no real data`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority={false}
-          />
-        )}
-      </div>
-
-      <figcaption className="mt-1 text-[11px] text-slate-600">
-        {caption} (illustrative; data redacted/synthetic)
-      </figcaption>
-    </figure>
-  );
-}
-
-
-function Stat({ tag, label, value }: {tag: string; label: string; value: string }) {
+function Stat({ label, value }: { label: string; value: string }) {
   return (
     <Card className="rounded-2xl shadow-sm">
       <CardContent className="p-4">
-        <div className="mb-2 text-[11px] font-medium text-slate-600">
-          <span className="rounded-full bg-slate-100 px-2 py-0.5">{tag}</span>
-        </div>
         <p className="text-2xl font-semibold tracking-tight">{value}</p>
         <p className="text-sm text-muted-foreground mt-1">{label}</p>
       </CardContent>
@@ -454,30 +360,21 @@ export default function Portfolio() {
         </div>
        </div>
         <p className="mt-6 max-w-3xl text-slate-700">
-          Technical Program Manager with 15+ years across the SDLC. I align cross functional teams, set clear KPIs and risks, and ship reliable systems across enterprise and startup environments.
+          Technical Program Manager with end-to-end SDLC experience. I simplify complex systems, drive metrics and risk management, and lead cross-functional programs. I align teams, design simple workflows, and deliver reliably across countries, from <Brand>Apple</Brand>,  <Brand>JPMorgan</Brand> and <Brand>UBS</Brand> to AI assisted MRV and a full telemedicine stack spanning WhatsApp triage, a clinician web portal, and live doctor consultations.
         </p>
-  <CompanyLogos />
-
       </header>
 
-
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
-<Separator className="my-10" />
-
-<section className="space-y-3">
-  <h2 className="text-2xl font-semibold tracking-tight">Cross-project impact</h2>
-  <p className="text-sm text-muted-foreground">Selected outcomes across roles and orgs</p>
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-    {HIGHLIGHTS.map((s) => <Stat key={s.tag + s.label} {...s} />)}
-  </div>
-</section>
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {HIGHLIGHTS.map((s) => (
+            <Stat key={s.label} {...s} />
+          ))}
+        </section>
 
         <Separator className="my-10" />
 
 <section className="space-y-4">
   <h2 className="text-2xl font-semibold tracking-tight">Roles across the SDLC</h2>
-   <p className="text-sm text-muted-foreground">Hands-on across the SDLC: BA → PM/TPM → QA → Prod Ops
-   </p>
   {/* Use defaults: */}
   <div className="pt-2 md:pt-4">
   <SdlcWheel />
@@ -496,6 +393,30 @@ export default function Portfolio() {
  </div>
 </section>
         
+{/* How I work (stepper) */}
+<Separator className="my-10" />
+<div className="bg-slate-50">
+<section className="grid md:grid-cols-3 gap-6">
+  <Card className="rounded-2xl shadow-sm md:col-span-3">
+    <CardHeader><CardTitle>How I work</CardTitle></CardHeader>
+    <CardContent className="space-y-3 text-slate-700">
+<ul className="grid grid-cols-2 md:grid-cols-4 gap-3">
+  {HOW_STEPS.map((s) => (
+    <li key={s.title} className="flex items-start gap-2">
+      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 shrink-0">
+        <s.icon className="h-3.5 w-3.5" />
+      </span>
+      <div className="text-sm">
+        <div className="font-medium text-slate-900">{s.title}</div>
+        <div className="text-slate-700 text-xs">{s.blurb}</div>
+      </div>
+    </li> 
+  ))}     
+</ul>    
+    </CardContent>
+  </Card>
+</section> 
+</div>
         <Separator className="my-10" />
 <section className="space-y-6">
   <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
@@ -565,33 +486,57 @@ export default function Portfolio() {
 
 {p.images && p.images.length > 0 && (
   p.images.length > 2 ? (
-    // 3+ images → horizontal snap scroll with fixed-height cards
+    // Horizontal scroll for 3+ images
     <div className="relative">
       <div className="mb-2 text-[11px] text-slate-500">Swipe to see more →</div>
       <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2
                       [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
         {p.images.map((img, i) => (
-          <div key={i} className="snap-start min-w-[260px] md:min-w-[320px]">
-            <ImgCard src={img.src} caption={img.caption} />
-          </div>
+          <figure
+            key={i}
+            className="relative snap-start min-w-[260px] md:min-w-[320px] rounded-lg border bg-white p-2"
+          >
+            <span className="absolute right-2 top-2 rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-medium text-white">
+              SAMPLE
+            </span>
+            <Image
+              src={img.src}
+              alt={`${img.caption} — sample / illustrative, no real data`}
+              width={img.width ?? 640}
+              height={img.height ?? 360}
+              className="h-auto w-full rounded"
+            />
+            <figcaption className="mt-1 text-[11px] text-slate-600">
+              {img.caption} (illustrative; data redacted/synthetic)
+            </figcaption>
+          </figure>
         ))}
       </div>
     </div>
   ) : (
-    // 1–2 images → grid with fixed-height cards
-    <div className={`grid gap-3 ${p.images.length === 1 ? "grid-cols-1" : "grid-cols-2"}`}>
+    // Simple 2-up grid for 1–2 images
+    <div className="grid grid-cols-2 gap-3">
       {p.images.map((img, i) => (
-        <ImgCard key={i} src={img.src} caption={img.caption} />
+        <figure key={i} className="relative rounded-lg border bg-white p-2">
+          <span className="absolute right-2 top-2 rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-medium text-white">
+            SAMPLE
+          </span>
+          <Image
+            src={img.src}
+            alt={`${img.caption} — sample / illustrative, no real data`}
+            width={img.width ?? 640}
+            height={img.height ?? 360}
+            className="h-auto w-full rounded"
+          />
+          <figcaption className="mt-1 text-[11px] text-slate-600">
+            {img.caption} (illustrative; data redacted/synthetic)
+          </figcaption>
+        </figure>
       ))}
     </div>
   )
 )}
 
-   <div className="flex flex-wrap items-center gap-2">
-          {p.tools.map((tool) => (
-            <Badge key={tool} variant="outline" className="rounded-full">{tool}</Badge>
-          ))}
-        </div>
 
 
 {p.glossary && p.glossary.length > 0 && (
@@ -618,85 +563,12 @@ export default function Portfolio() {
   </div>
 </section>
 
-<Separator className="my-10" />
-
-<section className="space-y-4">
-  <h2 className="text-2xl font-semibold tracking-tight">Technical skills & certifications</h2>
-  <div className="grid md:grid-cols-3 gap-4">
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Certifications</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-       {CERTS.map((c) => (<Pill key={c} accent="sky">{c}</Pill>))}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Cloud & infrastructure</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.cloudInfra.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Data & analytics</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.dataAnalytics.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Databases</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.databases.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Languages & scripting</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.languages.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Frontend & collaboration</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {[...SKILLS.frontend, ...SKILLS.delivery].map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-  </div>
-</section>
-
-
-
         <Separator className="my-10" />
-<div className="bg-slate-50">
-<section className="grid md:grid-cols-3 gap-6">
-  <Card className="rounded-2xl shadow-sm md:col-span-3">
-    <CardHeader><CardTitle>How I work</CardTitle></CardHeader>
-    <CardContent className="space-y-3 text-slate-700">
-<ul className="grid grid-cols-2 md:grid-cols-4 gap-3">
-  {HOW_STEPS.map((s) => (
-    <li key={s.title} className="flex items-start gap-2">
-      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 shrink-0">
-        <s.icon className="h-3.5 w-3.5" />
-      </span>
-      <div className="text-sm">
-        <div className="font-medium text-slate-900">{s.title}</div>
-        <div className="text-slate-700 text-xs">{s.blurb}</div>
-      </div>
-    </li> 
-  ))}     
-</ul>    
-    </CardContent>
-  </Card>
-</section>
-</div>
-<Separator className="my-10" />
+
         <section className="grid md:grid-cols-3 gap-6 items-stretch">
           <Card className="h-fullrounded-2xl shadow-sm md:col-span-2">
             <CardHeader className="pb-3">
-              <CardTitle>About me</CardTitle>
+              <CardTitle>About</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-slate-700">
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-base leading-7">
@@ -792,38 +664,15 @@ export default function Portfolio() {
       </main>
 
       <Separator className="my-12" />
-<footer className="border-t border-slate-200/70">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 text-xs text-slate-600 leading-tight">
-    {/* Line 1 */}
-    <p>
-      © {new Date().getFullYear()} Mona Singh ·{" "}
-      <span className="whitespace-nowrap">Built with care and clarity using:</span>
-    </p>
-
-    {/* Line 2 */}
-    <div className="mt-1 flex flex-wrap items-center gap-2">
-      <Pill accent="slateDark" className="text-[11px]">Next.js 15</Pill>
-      <Pill accent="slateDark" className="text-[11px]">React</Pill>
-      <Pill accent="slateDark" className="text-[11px]">TypeScript</Pill>
-      <Pill accent="slateDark" className="text-[11px]">Tailwind</Pill>
-      <Pill accent="slateDark" className="text-[11px]">shadcn/ui</Pill>
-      <Pill accent="slateDark" className="text-[11px]">Vercel</Pill>
-
-      <span className="ml-2">
-        Code available on GitHub upon request —{" "}
-        <a
-          className="underline"
-          href="mailto:mona.singh08@gmail.com?subject=Request%20for%20portfolio%20code"
-        >
-          email me
-        </a>.
-      </span>
+     <div className="bg-slate-50">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-8">
+        <CompanyLogos />
+       </section>
+       </div>
+      <footer className="max-w-6xl mx-auto px-4 sm:px-6 pb-10 text-xs text-muted-foreground">
+        <p>© {new Date().getFullYear()} Mona Singh. Built with care and clarity.</p>
+      </footer>
     </div>
-  </div>
-</footer>
-
-
-</div>
   );
 }
 

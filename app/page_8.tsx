@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import CompanyLogos from "@/components/ui/CompanyLogos";
 import SdlcWheel from "@/components/ui/SdlcWheel";
-import Pill from "@/components/ui/Pill";
 import { Check } from "lucide-react";
 import { CheckCircle2 } from "lucide-react";
 import { Search, Users, Target, ClipboardList, Hammer, ShieldCheck, Rocket, LineChart } from "lucide-react";
@@ -32,29 +31,6 @@ const Brand = ({ children }: { children: React.ReactNode }) => (
     {children}
   </span>
 );
-
-const CERTS = ["PMP®", "CSPO®"];
-
-const SKILLS = {
-  cloudInfra: [
-    "AWS (EC2, S3, Lambda)",
-    "Unix/Linux",
-    "Infrastructure automation",
-    "CI/CD concepts"
-  ],
-  dataAnalytics: [
-    "ETL/DWH",
-    "Python data pipelines",
-    "Tableau",
-    "Power BI",
-    "Airtable",
-    "OLAP cubes",
-  ],
-  databases: ["PostgreSQL", "Oracle"],
-  languages: ["Python", "SQL", "PL/SQL", "Shell", "VBA/Macros"],
-  frontend: ["React", "Figma", "Balsamiq"],
-  delivery: ["Jira", "Confluence", "Asana", "ServiceNow", "Notion"],
-};
 
 const CONTACT = {
   name: "Mona Singh",
@@ -457,12 +433,9 @@ export default function Portfolio() {
           Technical Program Manager with 15+ years across the SDLC. I align cross functional teams, set clear KPIs and risks, and ship reliable systems across enterprise and startup environments.
         </p>
   <CompanyLogos />
-
       </header>
 
-
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
-<Separator className="my-10" />
 
 <section className="space-y-3">
   <h2 className="text-2xl font-semibold tracking-tight">Cross-project impact</h2>
@@ -496,6 +469,30 @@ export default function Portfolio() {
  </div>
 </section>
         
+{/* How I work (stepper) */}
+<Separator className="my-10" />
+<div className="bg-slate-50">
+<section className="grid md:grid-cols-3 gap-6">
+  <Card className="rounded-2xl shadow-sm md:col-span-3">
+    <CardHeader><CardTitle>How I work</CardTitle></CardHeader>
+    <CardContent className="space-y-3 text-slate-700">
+<ul className="grid grid-cols-2 md:grid-cols-4 gap-3">
+  {HOW_STEPS.map((s) => (
+    <li key={s.title} className="flex items-start gap-2">
+      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 shrink-0">
+        <s.icon className="h-3.5 w-3.5" />
+      </span>
+      <div className="text-sm">
+        <div className="font-medium text-slate-900">{s.title}</div>
+        <div className="text-slate-700 text-xs">{s.blurb}</div>
+      </div>
+    </li> 
+  ))}     
+</ul>    
+    </CardContent>
+  </Card>
+</section> 
+</div>
         <Separator className="my-10" />
 <section className="space-y-6">
   <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
@@ -587,11 +584,6 @@ export default function Portfolio() {
   )
 )}
 
-   <div className="flex flex-wrap items-center gap-2">
-          {p.tools.map((tool) => (
-            <Badge key={tool} variant="outline" className="rounded-full">{tool}</Badge>
-          ))}
-        </div>
 
 
 {p.glossary && p.glossary.length > 0 && (
@@ -618,85 +610,12 @@ export default function Portfolio() {
   </div>
 </section>
 
-<Separator className="my-10" />
-
-<section className="space-y-4">
-  <h2 className="text-2xl font-semibold tracking-tight">Technical skills & certifications</h2>
-  <div className="grid md:grid-cols-3 gap-4">
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Certifications</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-       {CERTS.map((c) => (<Pill key={c} accent="sky">{c}</Pill>))}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Cloud & infrastructure</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.cloudInfra.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Data & analytics</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.dataAnalytics.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Databases</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.databases.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Languages & scripting</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {SKILLS.languages.map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-
-    <Card className="rounded-2xl shadow-sm">
-      <CardHeader><CardTitle className="text-base">Frontend & collaboration</CardTitle></CardHeader>
-      <CardContent className="flex flex-wrap gap-2">
-        {[...SKILLS.frontend, ...SKILLS.delivery].map((s) => <Pill key={s}>{s}</Pill>)}
-      </CardContent>
-    </Card>
-  </div>
-</section>
-
-
-
         <Separator className="my-10" />
-<div className="bg-slate-50">
-<section className="grid md:grid-cols-3 gap-6">
-  <Card className="rounded-2xl shadow-sm md:col-span-3">
-    <CardHeader><CardTitle>How I work</CardTitle></CardHeader>
-    <CardContent className="space-y-3 text-slate-700">
-<ul className="grid grid-cols-2 md:grid-cols-4 gap-3">
-  {HOW_STEPS.map((s) => (
-    <li key={s.title} className="flex items-start gap-2">
-      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 shrink-0">
-        <s.icon className="h-3.5 w-3.5" />
-      </span>
-      <div className="text-sm">
-        <div className="font-medium text-slate-900">{s.title}</div>
-        <div className="text-slate-700 text-xs">{s.blurb}</div>
-      </div>
-    </li> 
-  ))}     
-</ul>    
-    </CardContent>
-  </Card>
-</section>
-</div>
-<Separator className="my-10" />
+
         <section className="grid md:grid-cols-3 gap-6 items-stretch">
           <Card className="h-fullrounded-2xl shadow-sm md:col-span-2">
             <CardHeader className="pb-3">
-              <CardTitle>About me</CardTitle>
+              <CardTitle>About</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-slate-700">
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-base leading-7">
@@ -792,38 +711,15 @@ export default function Portfolio() {
       </main>
 
       <Separator className="my-12" />
-<footer className="border-t border-slate-200/70">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 text-xs text-slate-600 leading-tight">
-    {/* Line 1 */}
-    <p>
-      © {new Date().getFullYear()} Mona Singh ·{" "}
-      <span className="whitespace-nowrap">Built with care and clarity using:</span>
-    </p>
-
-    {/* Line 2 */}
-    <div className="mt-1 flex flex-wrap items-center gap-2">
-      <Pill accent="slateDark" className="text-[11px]">Next.js 15</Pill>
-      <Pill accent="slateDark" className="text-[11px]">React</Pill>
-      <Pill accent="slateDark" className="text-[11px]">TypeScript</Pill>
-      <Pill accent="slateDark" className="text-[11px]">Tailwind</Pill>
-      <Pill accent="slateDark" className="text-[11px]">shadcn/ui</Pill>
-      <Pill accent="slateDark" className="text-[11px]">Vercel</Pill>
-
-      <span className="ml-2">
-        Code available on GitHub upon request —{" "}
-        <a
-          className="underline"
-          href="mailto:mona.singh08@gmail.com?subject=Request%20for%20portfolio%20code"
-        >
-          email me
-        </a>.
-      </span>
+     <div className="bg-slate-50">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-8">
+        <CompanyLogos />
+       </section>
+       </div>
+      <footer className="max-w-6xl mx-auto px-4 sm:px-6 pb-10 text-xs text-muted-foreground">
+        <p>© {new Date().getFullYear()} Mona Singh. Built with care and clarity.</p>
+      </footer>
     </div>
-  </div>
-</footer>
-
-
-</div>
   );
 }
 
