@@ -9,6 +9,9 @@ import { Separator } from "@/components/ui/separator";
 import CompanyLogos from "@/components/ui/CompanyLogos";
 import SdlcWheel from "@/components/ui/SdlcWheel";
 import Pill from "@/components/ui/Pill";
+import EndOfPageHover from "@/components/ui/EndOfPageHover";
+import EndOfPageBanner from "@/components/ui/EndOfPageBanner";
+import FloatingThanksBubble from "@/components/ui/FloatingThanksBubble";
 import { Check } from "lucide-react";
 import { CheckCircle2 } from "lucide-react";
 import { Search, Users, Target, ClipboardList, Hammer, ShieldCheck, Rocket, LineChart } from "lucide-react";
@@ -766,7 +769,7 @@ export default function Portfolio() {
       alt="Mona Singh headshot"
       width={56}
       height={56}
-      className="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-100 shadow-sm"
+      className="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-100 shadow-sm md:hidden"
       priority={false}
     />
     <div className="leading-tight">
@@ -792,35 +795,21 @@ export default function Portfolio() {
           </Card>
         </section>
       </main>
+<FloatingThanksBubble
+  email={CONTACT.email}
+  avatarSrc="/profile.png"
+  builtWith={["Next.js 15","React","TypeScript","Tailwind","shadcn/ui","Vercel"]}
+/>
 
-      <Separator className="my-12" />
-<footer className="border-t border-slate-200/70">
+<Separator className="my-10" />
+<footer className="border-slate-200/70">
   <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 text-xs text-slate-600 leading-tight">
     {/* Line 1 */}
     <p>
       © {new Date().getFullYear()} Mona Singh ·{" "}
-      <span className="whitespace-nowrap">Built with care and clarity using:</span>
+      <span className="whitespace-nowrap">Built with care and clarity</span>
     </p>
 
-    {/* Line 2 */}
-    <div className="mt-1 flex flex-wrap items-center gap-2">
-      <Pill accent="slateDark" className="text-[11px]">Next.js 15</Pill>
-      <Pill accent="slateDark" className="text-[11px]">React</Pill>
-      <Pill accent="slateDark" className="text-[11px]">TypeScript</Pill>
-      <Pill accent="slateDark" className="text-[11px]">Tailwind</Pill>
-      <Pill accent="slateDark" className="text-[11px]">shadcn/ui</Pill>
-      <Pill accent="slateDark" className="text-[11px]">Vercel</Pill>
-
-      <span className="ml-2">
-        Code available on GitHub upon request —{" "}
-        <a
-          className="underline"
-          href="mailto:mona.singh08@gmail.com?subject=Request%20for%20portfolio%20code"
-        >
-          email me
-        </a>.
-      </span>
-    </div>
   </div>
 </footer>
 
