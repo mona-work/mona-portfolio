@@ -63,7 +63,7 @@ const CONTACT = {
   email: "mona.singh08@gmail.com",
   phone: "201-589-0640",
   linkedin: "https://www.linkedin.com/in/mona-singh-67471810",
-  resume: "https://drive.google.com/file/d/1MRXeFRmIf3oHCZfr1nnFcB_BzYWwcW8K/view?usp=drive_link" // add resume pdf link when ready
+  resume: "/resume/MonaSingh.pdf" // add resume pdf link when ready
 };
 
 const HIGHLIGHTS = [
