@@ -159,7 +159,7 @@ const PROJECTS: Project[] = [
       },
       
       {
-        src: "/biocharlife/Flow.png",
+        src: "/biocharlife/flow.png",
         caption: "System flow: capture → validate → review → auditor",
         width: 640,
         height: 360
