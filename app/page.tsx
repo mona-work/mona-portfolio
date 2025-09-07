@@ -28,7 +28,6 @@ import {
 } from "lucide-react";
 
 // Mona Singh - Product Portfolio
-// Note: Replace link placeholders with your actual resume, LinkedIn, and case study assets.
 
 const Brand = ({ children }: { children: React.ReactNode }) => (
   <span className="text-emerald-700 dark:text-emerald-400 font-medium">
@@ -106,7 +105,6 @@ type Project = {
   approach: string[];
   metrics: string[];
   tools: string[];
-  // NEW (optional):
   explainer?: { title: string; subtitle?: string; bullets: string[] };
   images?: { src: string; caption: string; width?: number; height?: number }[];
   glossary?: { term: string; text: string }[];
