@@ -457,7 +457,7 @@ export default function Portfolio() {
         </div>
        </div>
         <p className="mt-6 max-w-3xl text-slate-700">
-          Technical Program Manager with 15+ years across the SDLC. I align cross functional teams, set clear KPIs and risks, and ship reliable systems across enterprise and startup environments.
+         Technical Project Manager with 15+ years of experience leading enterprise-scale initiatives, including cloud migrations (AWS), infrastructure builds (ETL pipelines), and network-reliant systems (Twilio). Expert in coordinating 100+ distributed teams to deliver 10,000+ carbon credits at BiocharLife and 5,000+ users at ElevarSalud, with proven risk mitigation and succinct reporting for senior stakeholders. Skilled in Agile (PMP, CSPO) and equipped with strong communication and critical thinking for fast-paced environments.
         </p>
   <CompanyLogos />
 
