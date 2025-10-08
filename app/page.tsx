@@ -358,7 +358,7 @@ function ProjectCard({ p }: { p: typeof PROJECTS[number] }) {
           <div>
             <CardTitle className="text-xl">{p.title}</CardTitle>
             <p className="text-sm text-muted-foreground mt-1">
-              {p.org} • {p.role}
+              {p.org} • {p.role} • {p.timeframe}
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {p.tags.map((t) => (
