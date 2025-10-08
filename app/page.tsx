@@ -508,7 +508,7 @@ export default function Portfolio() {
         <CardHeader>
           <CardTitle>{p.title}</CardTitle>
           <div className="text-sm text-muted-foreground">
-            {p.org} • {p.role}
+            {p.org} • {p.role} • {p.timeframe}
           </div>
           <div className="mt-2 flex flex-wrap gap-1">
             {p.tags.map((t) => (
