@@ -116,15 +116,15 @@ const PROJECTS: Project[] = [
   {
     id: "biochar",
     org: "BiocharLife",
-    title: "AI-assisted MRV for carbon verification",
+    title: "MRV for carbon verification",
     role: "Technical Program Manager",
     timeframe: "Dec 2023 – Mar 2025",
-    tags: ["AI/ML", "MRV", "Field ops", "Low connectivity"],
+    tags: ["GPS", "MRV", "Field ops", "Carbon sequestration"],
     problem:
       "Carbon credit issuance requires verified evidence (trench, feedstock, GPS/date, photos tied to project IDs). Across four countries the data was inconsistent, connectivity was patchy, and rules kept changing—slowing reviews and delaying payouts.",
     approach: [
          "Set success criteria and KPIs: first-cycle approval and 3-day median time to decision. Added end-to-end metrics from submission to auditor package to expose bottlenecks and guide improvements.",
-"Field capture operations: issued SOPs and checklists for the required evidence set; made the app offline-first with prompts and quality nudges; ensured consent and reliable upload/retry.",
+"Field capture operations: issued SOPs and checklists for the required evidence set; made the app with prompts and quality nudges; ensured consent and reliable upload/retry.",
 "Validation and routing: standardized the data model; added automated quality gates (location inside allowed area, time sanity, image clarity); auto-pass vs. review queues based on rules.",
 "Reviewer workflow: provided a review console with reason codes, standard outcomes (approve / reject / recapture), and override policy with rationale for traceability.",
 "Governance and change control: maintained a thresholds registry and decision log; used simulate → pilot (one region) → full release with version tags and rollback"
