@@ -116,10 +116,10 @@ const PROJECTS: Project[] = [
   {
     id: "biochar",
     org: "BiocharLife",
-    title: "MRV for carbon verification",
+    title: "AI-assisted MRV for carbon verification",
     role: "Technical Program Manager",
     timeframe: "Dec 2023 – Mar 2025",
-    tags: ["GPS", "MRV", "Field ops", "Carbon sequestration"],
+    tags: ["OpenAI/CLIP", "MRV", "Field ops", "Carbon sequestration"],
     problem:
       "Carbon credit issuance requires verified evidence (trench, feedstock, GPS/date, photos tied to project IDs). Across four countries the data was inconsistent, connectivity was patchy, and rules kept changing—slowing reviews and delaying payouts.",
     approach: [
