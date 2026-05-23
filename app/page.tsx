@@ -61,7 +61,7 @@ const SKILLS = {
 const CONTACT = {
   name: "Mona Singh",
   title: "Technical Program Manager • Project/Product Manager",
-  location: "New York City, NY",
+  location: "SF Bay Area / NYC",
   email: "mona.singh08@gmail.com",
   phone: "201-589-0640",
   linkedin: "https://www.linkedin.com/in/mona-singh-67471810",
@@ -69,10 +69,10 @@ const CONTACT = {
 };
 
 const HIGHLIGHTS = [
-  { tag: "JPMorgan",    value: "100+ stakeholders", label: "Aligned risk, data, and engineering for Basel III & CCAR delivery" },
-  { tag: "BiocharLife", value: "4 countries",       label: "Led MRV rollout and operating cadence (TPM)" },
-  { tag: "ElevarSalud", value: "5,000+ users",      label: "Launched WhatsApp triage + clinician portal" },
-  { tag: "UBS",         value: "~35% faster QA",    label: "Automated reconciliation across Oracle / OLAP pipelines" },
+  { tag: "Meta",        logo: "/logos/meta.svg",        value: "292 models",             label: "ML evaluation and debugging programs tracked across Ads Ranking in Q1" },
+  { tag: "JPMorgan",    logo: "/logos/jpmorgan.png",    value: "100+ stakeholders",      label: "Aligned risk, data, and engineering for Basel III & CCAR delivery" },
+  { tag: "BiocharLife", logo: "/logos/biocharlife.png", value: "10,000+ carbon credits", label: "Verified after leading MRV rollout across 4 countries" },
+  { tag: "ElevarSalud", logo: "/logos/elevarsalud.png", value: "5,000+ users",           label: "Launched WhatsApp triage + clinician portal" },
 ];
 
 const HOW_STEPS = [
@@ -97,6 +97,7 @@ const QUALITIES = [
 type Project = {
   id: string;
   org: string;
+  logo?: string;
   title: string;
   role: string;
   timeframe: string;
@@ -114,8 +115,47 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    id: "meta",
+    org: "Meta",
+    logo: "/logos/meta.svg",
+    title: "Ads Ranking ML Productionization",
+    role: "Technical Program Manager",
+    timeframe: "Feb 2026 – Present",
+    tags: ["ML Productionization", "Ads Ranking", "O2O Debugging", "Eval Governance"],
+    problem:
+      "Ads Ranking ML models needed a reliable path from offline evaluation to online launch — but offline signals were inconsistent, offline-to-online gaps caused delayed incident detection, and cross-org ownership of eval configs was unclear, slowing launch decisions and extending mitigation timelines.",
+    approach: [
+      "ML Model Launch & Production Readiness: led cross-functional programs for Ads Ranking ML systems, helping ranking models move from offline evaluation to reliable online launch across evaluation reliability, offline-to-online debugging, launch readiness, and production issue mitigation.",
+      "XFN Partnership & Roadmap Influence: led H2 planning and stakeholder alignment across Ads product groups, including Instagram, Business Messaging, and model platform teams; translated customer pain points into prioritization docs, OKRs, and roadmap narratives that helped the team secure the highest vote count across competing investment areas.",
+      "Program Management & Operating Rhythm: created H1 operating structure across ML evaluation and debugging workstreams — milestone tracking, OKR alignment, WBR updates, dashboards, customer success metrics, risk/blocker management, roadmap refreshes, and leadership reporting.",
+      "Model Launch Decision Quality: drove execution toward a 75.5% Good Decision Rate target, connecting offline go/no-go recommendations to post-launch ads quality and incremental revenue outcomes.",
+      "Offline Evaluation Platform Reliability: drove reliability measurement for the offline evaluation platform used in Ads Ranking model launch decisions; operationalized 86% half-to-date reliability and helped create failure-category metrics to distinguish platform issues from user-side, capacity, and downstream system failures.",
+      "ML Debugging & Issue Mitigation: automated O2O issue tracking by scanning SEV/incident tickets, identifying relevant model debugging issues, updating mitigation trackers, summarizing resolution status, and calculating MTTM; partnered with engineering on white-glove support, improving MTTM to 10.8 days.",
+      "Governance & Automation: drove cross-org accountability for evaluation configuration and metric definition quality across high-priority, revenue-relevant Ads Ranking models; built automation to reduce reporting burden on technical leads; published an internal AI tooling guide featured in the AI4P x TPM digest.",
+    ],
+    metrics: [
+      "MTTM improved to 10.8 days through automated O2O issue tracking and white-glove engineering support",
+      "Offline eval platform reliability operationalized at 86% half-to-date with failure-category metrics",
+      "100+ models onboarded to Unified Eval (Meta's standardized ML evaluation framework)",
+      "50+ models onboarded to O2O debugging coverage",
+      "2,400 evaluation jobs tracked across 292 models in Q1",
+      "Secured team's highest vote count across competing investment areas for H2 roadmap",
+    ],
+    tools: ["ML Infra", "Python", "OKR frameworks", "WBR dashboards", "Jira", "Automation scripting"],
+    glossary: [
+      { term: "O2O", text: "Offline-to-online. The gap between how a model performs in offline evaluation vs. live production — the source of most launch surprises." },
+      { term: "MTTM", text: "Mean time to mitigate. How long from detecting a production issue to resolving it. Improved to 10.8 days." },
+      { term: "Good Decision Rate", text: "The % of launch decisions where offline go/no-go signals correctly predicted post-launch ads quality and revenue. Target: 75.5%." },
+      { term: "WBR", text: "Weekly business review. A recurring leadership update on program health, milestones, and risks." },
+      { term: "Eval policy/config", text: "Rules and settings that determine how a model is evaluated offline. Misconfigured eval sends wrong launch signals." },
+      { term: "P80/P50/P20", text: "Confidence-tiered milestone targets. P80 = stretch goal, P50 = likely, P20 = floor commitment. Communicates delivery range rather than a single date." },
+    ],
+    disclaimer: "Role impacted by Meta org-wide layoffs; currently in notice period. Metrics are rounded or directional; no proprietary data included.",
+  },
+  {
     id: "biochar",
     org: "BiocharLife",
+    logo: "/logos/biocharlife.png",
     title: "AI-assisted MRV for carbon verification",
     role: "Technical Program Manager",
     timeframe: "Dec 2023 – Mar 2025",
@@ -179,6 +219,7 @@ disclaimer:
   {
     id: "elevar",
     org: "ElevarSalud",
+    logo: "/logos/elevarsalud.png",
     title: "WhatsApp triage + clinician portal",
     role: "Co-founder • Product/Program Lead",
     timeframe: "Dec 2022 – Nov 2023",
@@ -222,6 +263,7 @@ glossary: [
   {
     id: "jpm",
     org: "JPMorgan",
+    logo: "/logos/jpmorgan.png",
     title: "Regulatory risk data systems",
     role: "Business Analyst",
     timeframe: "Jun 2014 – May 2018",
@@ -253,6 +295,7 @@ glossary: [
   {
     id: "ubs",
     org: "UBS",
+    logo: "/logos/ubs.jpg",
     title: "Market-risk QA automation",
     role: "QA Engineer",
     timeframe: "Feb 2012 – Jun 2014",
@@ -336,13 +379,24 @@ function ImgCard({
 }
 
 
-function Stat({ tag, label, value }: {tag: string; label: string; value: string }) {
+function Stat({ tag, logo, label, value }: { tag: string; logo?: string; label: string; value: string }) {
   return (
     <Card className="rounded-2xl shadow-sm">
       <CardContent className="p-4">
-        <div className="mb-2 text-[11px] font-medium text-slate-600">
-          <span className="rounded-full bg-slate-100 px-2 py-0.5">{tag}</span>
-        </div>
+        {logo ? (
+          <Image
+            src={logo}
+            alt={tag}
+            width={72}
+            height={24}
+            className="h-6 w-auto object-contain mb-3"
+            priority={false}
+          />
+        ) : (
+          <div className="mb-2 text-[11px] font-medium text-slate-600">
+            <span className="rounded-full bg-slate-100 px-2 py-0.5">{tag}</span>
+          </div>
+        )}
         <p className="text-2xl font-semibold tracking-tight">{value}</p>
         <p className="text-sm text-muted-foreground mt-1">{label}</p>
       </CardContent>
@@ -358,7 +412,7 @@ function ProjectCard({ p }: { p: typeof PROJECTS[number] }) {
           <div>
             <CardTitle className="text-xl">{p.title}</CardTitle>
             <p className="text-sm text-muted-foreground mt-1">
-              {p.org} • {p.role} • {p.timeframe}
+              {p.org} • {p.role}
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {p.tags.map((t) => (
@@ -457,7 +511,7 @@ export default function Portfolio() {
         </div>
        </div>
         <p className="mt-6 max-w-3xl text-slate-700">
-         Technical Project Manager with 15+ years of experience leading enterprise-scale initiatives, including cloud migrations (AWS), infrastructure builds (ETL pipelines), and network-reliant systems (Twilio). Expert in coordinating 100+ distributed teams to deliver 10,000+ carbon credits at BiocharLife and 5,000+ users at ElevarSalud, with proven risk mitigation and succinct reporting for senior stakeholders. Skilled in Agile (PMP, CSPO) and equipped with strong communication and critical thinking for fast-paced environments.
+          Technical product and program leader with 15+ years of experience leading complex technical initiatives across AI/ML systems, data platforms, risk technology, and production reliability. Recently worked on Ads Ranking ML systems at Meta, focused on model launch readiness, offline evaluation reliability, offline-to-online debugging, roadmap execution, and production issue mitigation. Known for creating structure in ambiguous technical environments, aligning engineering, product, and platform teams, translating customer pain points into roadmap priorities, and connecting technical delivery to business impact.
         </p>
   <CompanyLogos />
 
@@ -506,10 +560,23 @@ export default function Portfolio() {
     {PROJECTS.map((p) => (
       <Card key={p.id} className="rounded-2xl shadow-sm">
         <CardHeader>
+          {p.logo && (
+            <Image
+              src={p.logo}
+              alt={p.org}
+              width={80}
+              height={28}
+              className="h-7 w-auto object-contain mb-2"
+              priority={false}
+            />
+          )}
           <CardTitle>{p.title}</CardTitle>
           <div className="text-sm text-muted-foreground">
-            {p.org} • {p.role} • {p.timeframe}
+            {p.org} • {p.role}
           </div>
+          {p.timeframe && (
+            <div className="text-xs text-slate-400">{p.timeframe}</div>
+          )}
           <div className="mt-2 flex flex-wrap gap-1">
             {p.tags.map((t) => (
               <span key={t} className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">

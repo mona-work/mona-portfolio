@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 const LOGOS = [
-  { src: "/logos/apple.svg",       alt: "Apple",        href: "#" },
-  { src: "/logos/jpmorgan.png",    alt: "JPMorgan",     href: "#" },
-  { src: "/logos/ubs.svg",         alt: "UBS",          href: "#" },
-  { src: "/logos/biocharlife.png", alt: "BiocharLife",  href: "/case/biocharlife" },
-  { src: "/logos/elevarsalud.png", alt: "ElevarSalud",  href: "/case/elevar" },
+  { src: "/logos/meta.svg",        alt: "Meta",         href: "#",                  height: "h-9"  },
+  { src: "/logos/apple.svg",       alt: "Apple",        href: "#",                  height: "h-9"  },
+  { src: "/logos/jpmorgan.png",    alt: "JPMorgan",     href: "#",                  height: "h-9"  },
+  { src: "/logos/ubs.jpg",         alt: "UBS",          href: "#",                  height: "h-9"  },
+  { src: "/logos/biocharlife.png", alt: "BiocharLife",  href: "/case/biocharlife",  height: "h-7"  },
+  { src: "/logos/elevarsalud.png", alt: "ElevarSalud",  href: "/case/elevar",       height: "h-7"  },
 ];
 
 export default function CompanyLogos() {
@@ -25,9 +26,9 @@ export default function CompanyLogos() {
             <Image
               src={l.src}
               alt={l.alt}
-              width={96}
-              height={28}
-              className="h-7 w-auto grayscale hover:grayscale-0"
+              width={120}
+              height={40}
+              className={`${l.height} w-auto grayscale hover:grayscale-0`}
               priority={false}
             />
           </a>

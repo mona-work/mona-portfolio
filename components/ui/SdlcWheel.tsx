@@ -9,12 +9,12 @@ type Phase = {
 };
 
 const DEFAULT_PHASES: Phase[] = [
-  { phase: "Plan",    role: "BA",                company: "JPMorgan",    when: "2014–18", color: "bg-indigo-400" },
-  { phase: "Design",  role: "PM / Co-founder",   company: "ElevarSalud", when: "2022–23", color: "bg-emerald-400" },
-  { phase: "Build",   role: "TPM",               company: "BiocharLife", when: "2023–25", color: "bg-sky-400" },
-  { phase: "Test",    role: "QA",                company: "UBS",         when: "2012–14", color: "bg-amber-400" },
-  { phase: "Release", role: "Prod Support",      company: "Apple",       when: "2008–12", color: "bg-rose-400" },
-  { phase: "Operate", role: "TPM",               company: "BiocharLife", when: "2023–25", color: "bg-purple-400" },
+  { phase: "Operate", role: "TPM",               company: "Meta & BiocharLife",    when: "2023–26", color: "bg-purple-400" },
+  { phase: "Plan",    role: "BA",                company: "JPMorgan",              when: "2014–18", color: "bg-indigo-400" },
+  { phase: "Design",  role: "PM / Co-founder",   company: "ElevarSalud",           when: "2022–23", color: "bg-emerald-400" },
+  { phase: "Build",   role: "TPM",               company: "BiocharLife & Meta",    when: "2023–26", color: "bg-sky-400" },
+  { phase: "Test",    role: "QA",                company: "UBS",                   when: "2012–14", color: "bg-amber-400" },
+  { phase: "Release", role: "Prod Support",      company: "Apple",                 when: "2008–12", color: "bg-rose-400" },
 ];
 
 // marker positions around the circle
