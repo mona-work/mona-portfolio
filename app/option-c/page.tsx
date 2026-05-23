@@ -61,36 +61,6 @@ const LOGOS = [
   { src: "/logos/elevarsalud.png", alt: "ElevarSalud", h: "h-7" },
 ];
 
-const SKILLS = {
-  cloudInfra: ["AWS (EC2, S3, Lambda)", "Unix/Linux", "Infrastructure automation", "CI/CD concepts"],
-  dataAnalytics: ["ETL/DWH", "Python data pipelines", "Tableau", "Power BI", "Airtable", "OLAP cubes"],
-  databases: ["PostgreSQL", "Oracle"],
-  languages: ["Python", "SQL", "PL/SQL", "Shell", "VBA/Macros"],
-  frontend: ["React", "Figma", "Balsamiq"],
-  delivery: ["Jira", "Confluence", "Asana", "ServiceNow", "Notion"],
-};
-
-const HOW_STEPS = [
-  { title: "Understand", icon: Search,        blurb: "Clarify problem, users, constraints" },
-  { title: "Align",      icon: Users,         blurb: "Stakeholders, KPIs, risks, owner map" },
-  { title: "Plan",       icon: ClipboardList, blurb: "Roadmap, milestones, decision log" },
-  { title: "Build",      icon: Hammer,        blurb: "MVP first, unblock fast, clear gates" },
-  { title: "Validate",   icon: ShieldCheck,   blurb: "Data rules, QA, pilots in 1 region" },
-  { title: "Launch",     icon: Rocket,        blurb: "Measured rollout with kill switch" },
-  { title: "Operate",    icon: LineChart,     blurb: "Dashboards, SLAs/SLOs, on-call" },
-  { title: "Improve",    icon: Target,        blurb: "Weekly metrics → actions → iterate" },
-];
-
-const ABOUT_QUALITIES = [
-  { icon: Sparkles,  label: "Structured thinking" },
-  { icon: Gauge,     label: "Prioritization under pressure" },
-  { icon: Braces,    label: "Technical fluency" },
-  { icon: BarChart,  label: "Analytical rigor" },
-  { icon: Handshake, label: "Trusted cross-function partner" },
-  { icon: Globe2,    label: "Cross-cultural collaboration" },
-  { icon: Shield,    label: "Calm leadership" },
-  { icon: Zap,       label: "Builder mindset" },
-];
 
 function ImgCard({ src, caption }: { src: string; caption: string }) {
   return (
@@ -353,7 +323,7 @@ export default function OptionC() {
                     <li><span className="font-semibold">MRV:</span> Measurement, Reporting, and Verification — the evidence process required before carbon credits are issued.</li>
                     <li><span className="font-semibold">Carbon credit:</span> A tradable certificate representing one metric ton of CO₂-equivalent avoided or removed.</li>
                     <li><span className="font-semibold">Biochar:</span> Charcoal made from biomass that stores carbon in soil for long periods.</li>
-                    <li><span className="font-semibold">Issuance:</span> The registry creates credits after the project's evidence is verified and approved.</li>
+                    <li><span className="font-semibold">Issuance:</span> The registry creates credits after the project&apos;s evidence is verified and approved.</li>
                   </ul>
                 </details>
               </CardContent>
