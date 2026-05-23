@@ -69,7 +69,7 @@ const CONTACT = {
 };
 
 const HIGHLIGHTS = [
-  { tag: "Meta",        logo: "/logos/meta.svg",        value: "292 models",             label: "ML evaluation and debugging programs tracked across Ads Ranking in Q1" },
+  { tag: "Meta",        logo: "/logos/meta.svg",        value: "300+ ML models",         label: "Managed across evaluation, debugging & launch readiness programs; MTTM improved 51%" },
   { tag: "JPMorgan",    logo: "/logos/jpmorgan.png",    value: "100+ stakeholders",      label: "Aligned risk, data, and engineering for Basel III & CCAR delivery" },
   { tag: "BiocharLife", logo: "/logos/biocharlife.png", value: "10,000+ carbon credits", label: "Verified after leading MRV rollout across 4 countries" },
   { tag: "ElevarSalud", logo: "/logos/elevarsalud.png", value: "5,000+ users",           label: "Launched WhatsApp triage + clinician portal" },
@@ -125,23 +125,24 @@ const PROJECTS: Project[] = [
     problem:
       "Ads Ranking ML models needed a reliable path from offline evaluation to online launch — but offline signals were inconsistent, offline-to-online gaps caused delayed incident detection, and cross-org ownership of eval configs was unclear, slowing launch decisions and extending mitigation timelines.",
     approach: [
-      "ML Model Launch & Production Readiness: led cross-functional programs for Ads Ranking ML systems, helping ranking models move from offline evaluation to reliable online launch across evaluation reliability, offline-to-online debugging, launch readiness, and production issue mitigation.",
-      "XFN Partnership & Roadmap Influence: led H2 planning and stakeholder alignment across Ads product groups, including Instagram, Business Messaging, and model platform teams; translated customer pain points into prioritization docs, OKRs, and roadmap narratives that helped the team secure the highest vote count across competing investment areas.",
-      "Program Management & Operating Rhythm: created H1 operating structure across ML evaluation and debugging workstreams — milestone tracking, OKR alignment, WBR updates, dashboards, customer success metrics, risk/blocker management, roadmap refreshes, and leadership reporting.",
-      "Model Launch Decision Quality: drove execution toward a 75.5% Good Decision Rate target, connecting offline go/no-go recommendations to post-launch ads quality and incremental revenue outcomes.",
-      "Offline Evaluation Platform Reliability: drove reliability measurement for the offline evaluation platform used in Ads Ranking model launch decisions; operationalized 86% half-to-date reliability and helped create failure-category metrics to distinguish platform issues from user-side, capacity, and downstream system failures.",
-      "ML Debugging & Issue Mitigation: automated O2O issue tracking by scanning SEV/incident tickets, identifying relevant model debugging issues, updating mitigation trackers, summarizing resolution status, and calculating MTTM; partnered with engineering on white-glove support, improving MTTM to 10.8 days.",
-      "Governance & Automation: drove cross-org accountability for evaluation configuration and metric definition quality across high-priority, revenue-relevant Ads Ranking models; built automation to reduce reporting burden on technical leads; published an internal AI tooling guide featured in the AI4P x TPM digest.",
+      "ML Model Launch & Production Readiness: led cross-functional programs for Ads Ranking ML systems, partnering with engineering, product, data science, and platform teams to move ranking models from offline evaluation to reliable online launch across evaluation reliability, debugging, launch readiness, and issue mitigation.",
+      "Customer Discovery & Roadmap Prioritization: led weekly engagement with internal Ads product-group customers — Instagram, Business Messaging, and model platform teams — to understand evaluation/debugging pain points, track H1 asks, refresh goals, and shape H2 roadmap priorities.",
+      "XFN Partnership & Roadmap Influence: translated customer pain points into prioritization docs, OKRs, and roadmap narratives that helped the team secure the highest vote count across competing investment areas.",
+      "Program Management & Operating Rhythm: created operating structure across ML evaluation and debugging workstreams — milestone tracking, OKR alignment, WBR updates, dashboards, customer success metrics, risk/blocker management, roadmap refreshes, tradeoff discussions, and leadership reporting.",
+      "ML Launch Decision Quality: drove execution against an increased Good Decision Rate target from 70% to 75.5%, connecting offline go/no-go recommendations to post-launch ads quality and incremental revenue outcomes.",
+      "Offline Evaluation Platform Reliability: aligned engineering owners, tracked half-to-date reliability improvement from 80% to 86%, and created failure-category metrics to separate platform, user-side, capacity, and downstream system failures.",
+      "ML Debugging & Issue Mitigation: automated offline-to-online issue tracking by scanning incident tickets, identifying relevant model debugging issues, updating mitigation trackers, and calculating MTTM; partnered with engineering on white-glove support, improving MTTM from 22 days to 10.8 days.",
+      "Governance & AI Tooling: drove cross-org accountability for evaluation configuration and metric definition quality; built automation to reduce reporting burden on technical leads; published an internal AI tooling guide featured in the AI4P x TPM digest.",
     ],
     metrics: [
-      "MTTM improved to 10.8 days through automated O2O issue tracking and white-glove engineering support",
-      "Offline eval platform reliability operationalized at 86% half-to-date with failure-category metrics",
-      "100+ models onboarded to Unified Eval (Meta's standardized ML evaluation framework)",
-      "50+ models onboarded to O2O debugging coverage",
+      "MTTM improved from 22 days → 10.8 days through automated O2O issue tracking and white-glove support",
+      "Offline eval platform reliability improved from 80% → 86% half-to-date",
+      "Good Decision Rate target raised from 70% → 75.5%",
+      "100+ models onboarded to Unified Eval; 50+ to O2O debugging",
       "2,400 evaluation jobs tracked across 292 models in Q1",
-      "Secured team's highest vote count across competing investment areas for H2 roadmap",
+      "Secured team's highest vote count across competing H2 investment areas",
     ],
-    tools: ["ML Infra", "Python", "OKR frameworks", "WBR dashboards", "Jira", "Automation scripting"],
+    tools: ["XFN Partnerships", "Risk & Blocker Management", "Roadmap Execution", "Tradeoff Facilitation", "OKR Planning", "WBR & Leadership Reporting", "Unidash", "Claude", "Manus", "Nestapp", "MyClaw"],
     glossary: [
       { term: "O2O", text: "Offline-to-online. The gap between how a model performs in offline evaluation vs. live production — the source of most launch surprises." },
       { term: "MTTM", text: "Mean time to mitigate. How long from detecting a production issue to resolving it. Improved to 10.8 days." },
